@@ -39,7 +39,7 @@ if ($removes -and -not $(Test-AnsiblePath -Path $removes)) {
 $command_args = @{
     command = $raw_command_line
 }
-if ($chdir) {
+if ($chdir -and $(Test-AnsiblePath -Path $chdir)) {
     $command_args['working_directory'] = $chdir
 }
 if ($stdin) {
